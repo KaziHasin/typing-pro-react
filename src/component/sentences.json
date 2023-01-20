@@ -1,0 +1,71 @@
+[
+
+    {
+        "id": 1,
+        "type": "beginner",
+        "topic": "letter",
+        "sentence": "G G G G G F F F F F H H H H H  J J J J J D D D D D S S S S S K K K K K L L L L L A A A A A g g g g g f f f f f d d d d d h h h h h j j j j j k k k k k s s s s s l l l l l a a a a a q q q q q p p p p p p"
+
+
+    },
+
+
+    {
+        "id": 2,
+        "type": "beginner",
+        "topic": "letter",
+        "sentence": "V V V V V C C C C C B B B B B N N N N N X X X X X Z Z Z Z Z M M M M M O O O O O Q Q Q Q Q P P P P P t t t t t r r r r r y y y y y u u u u u e e e e e w w w w w i i i i i o o o o o q q q q q p p p p p"
+
+
+    },
+
+
+
+
+    {
+        "id": 3,
+        "type": "intermediate",
+        "topic": "Need English Learning",
+        "sentence": "The world have multi-lingual people. People of different countries in different languages. But the language makes a link among all the people is English. Herein lies the importance of English as a language. This is the reason that English occupies an important place. Besides, the books on higher education are only in English language. The books on medical science and technology science are almost all in Enlish."
+
+
+    },
+
+    {
+        "id": 4,
+        "type": "beginner",
+        "topic": "letter",
+        "sentence": "G G G G G F F F F F H H H H H  J J J J J D D D D D S S S S S K K K K K L L L L L A A A A A g g g g g f f f f f d d d d d h h h h h j j j j j k k k k k s s s s s l l l l l a a a a a"
+
+
+    },
+
+
+    {
+        "id": 5,
+        "type": "intermediate",
+        "topic": "Early Rising",
+        "sentence": "Very few habits are as good as early rising. It is beneficial in more than one way. A man who rises early has some time to take exercise daily. It keeps him healty both physically and mentally. An early riser can do his work early. For the rest of the day he can also do his work properly in time. The proverb truly says - 'Early to bed and early to rise makes a man healty, wealthy and wise.'"
+
+
+    },
+    {
+        "id": 6,
+        "type": "advanced",
+        "topic": "Water is Life",
+        "sentence": "Water is essential to all forms of life. It makes up the majority of the human body, and is necessary for various bodily functions such as digestion and circulation. It is also essential for the growth of plants and the survival of animals. Access to clean and safe water is a basic human right, yet many communities around the world still lack this basic necessity. Water scarcity and pollution are major issues that need to be addressed in order to ensure that all living things have access to this vital resource."
+
+
+    },
+
+
+    {
+        "id": 7,
+        "type": "intermediate",
+        "topic": "Daily Routing of Life",
+        "sentence": " daily routine is a set of actions that a person performs regularly, usually at specific times of the day. These actions can include things like waking up, getting dressed, eating breakfast, going to work or school, exercising, spending time with family and friends, and going to bed. Having a daily routine can help a person stay organized, manage their time more effectively, and maintain a sense of structure in their life. It can also help to reduce stress and increase productivity. However, it is important to remember that everyone's daily routine will be different and may change over time."
+
+
+    }
+
+]

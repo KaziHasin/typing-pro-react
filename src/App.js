@@ -1,25 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './component/NavBar';
+import NavBarSecond from './component/NavBarSecond'
+import TypingHero from './component/TypingHero'
+import Login from './component/Login';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import { Routes, Route } from "react-router-dom"
+import TypingTextbox from './component/TypingTextbox';
+
+export default function App() {
+    return (
+
+        <
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+        <
+        NavBar / >
+        <
+        NavBarSecond / >
+        <
+        Routes >
 
-export default App;
+        <
+        Route path = "/"
+        element = { < TypingHero / > }
+        exact = { true }
+        />   <
+        Route path = "/login"
+        element = { < Login / > }
+        exact = { true }
+        /> 
+
+
+        <
+        Route path = "/article"
+        element = { < TypingTextbox / > }
+        exact = { true }
+        /> 
+
+        <
+        /
+        Routes >
+
+
+
+        <
+        />
+
+
+    )
+}
