@@ -14,7 +14,9 @@ let types = setence.filter(
   
 export default function TypingHero() {
 const [cardnumber, setCardNumber] = useState(0)
-
+const [increment, setIncrement] = useState(1)
+    
+   
      
     const changeArticla = (event, key) => {
         setCardNumber(key)
@@ -82,17 +84,18 @@ const [cardnumber, setCardNumber] = useState(0)
                   {setence.map((setence, index) => {
                     
                     if(type.type === setence.type) {
-                       
+
+                     
                     return (
                         
                   <div className="sentence-box bg-white shadow-lg py-8 px-4 rounded-xl my-8 " key={index} onClick={event => showTypingText(event, setence.sentence)}> 
    
 
                     <span className="inline-block w-12 h-12 rounded-full text-2xl mx-3 border-2 pt-1 text-center border-slate-200">
-                     {1}
+                     {increment}
                     </span>
                     <span className="text-4xl font-semibold font-mono text-gray-700 ">{setence.topic}</span>
-                    <Link to="article" state={{ city: setence.sentence }} className="cursor-pointer ">
+                    <Link to="article" state={{ text: setence.sentence }} className="cursor-pointer ">
                     <span className="play_icon2 flex float-right px-16 py-3 bg-yellow-400 justify-center align-items-center rounded-md">
                   <FontAwesomeIcon
                     icon={faPlay}
@@ -102,10 +105,14 @@ const [cardnumber, setCardNumber] = useState(0)
                 </span>
 
                 </Link>
+
+                
                   </div>
                  
-               
+                  
                     )
+
+                  
                     }else { return null}
                 })}
                 

@@ -7,6 +7,7 @@ import Login from './component/Login';
 import { Routes, Route } from "react-router-dom"
 import TypingTextbox from './component/TypingTextbox';
 
+
 export default function App() {
     return (
 
@@ -34,7 +35,10 @@ export default function App() {
         Route path = "/article"
         element = { < TypingTextbox / > }
         exact = { true }
-        /> 
+        />
+
+
+
 
         <
         /

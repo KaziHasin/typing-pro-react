@@ -43,7 +43,7 @@ function NavBar(props) {
                          <ul>
                             <li> <button> <Link to="/">Home </Link></button></li>
                             <li> <button> <Link to="/">About </Link></button></li>
-                            <li> <button> <Link to="/">Test </Link></button></li>
+                            <li> <button> <Link to="/test">Test </Link></button></li>
                             <li> <button> <Link to="/">Lession </Link></button></li>
                          </ul>
                 </nav>

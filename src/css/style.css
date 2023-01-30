@@ -47,3 +47,64 @@
     border-radius: .5rem 0 0 .5rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
+
+.typing_box .container {
+    display: grid;
+    grid-template-columns: 8rem 1fr 8rem;
+    grid-template-rows: 1fr, 20rem;
+    justify-content: center;
+}
+
+.typing_box .container .text-box {
+    grid-column: 2/3;
+}
+
+.typing_box .container .blinking {
+    position: relative;
+    color: #3b82f6;
+}
+
+.typing_box .container .blinking::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    height: .3rem;
+    width: 100%;
+    background-color: #3b82f6;
+    animation-name: blink;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    opacity: 1;
+    transition: .1s;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.typing_box .container .text-box-area {
+    /* grid-row: 2/3;
+    grid-column: 2/3;
+    margin: .5rem 0 8rem; */
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+}
+
+.typing_box .container .text-box-area .textarea1 {
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+}
