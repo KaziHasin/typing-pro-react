@@ -98,13 +98,21 @@
     grid-column: 2/3;
     margin: .5rem 0 8rem; */
     position: absolute;
-    top: 0;
+    top: -3rem;
     width: 100%;
-    opacity: 0;
+    opacity: 1;
 }
 
 .typing_box .container .text-box-area .textarea1 {
     height: 100%;
     width: 100%;
     font-size: 1.6rem;
+}
+
+.typing_box .container .text-box .text p{
+    font-size: 2.5rem;
+    letter-spacing: .2rem;
+    text-align: justify;
+    /* word-break: keep-all; */
+
 }
