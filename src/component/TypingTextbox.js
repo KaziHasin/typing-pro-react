@@ -16,23 +16,49 @@ export default function TypingTextbox() {
 
   const [textcount, setTextcount] = useState(0);
   const [textcolor, setTextcolor] = useState();
+  const [charArray, setCharArray] = useState([]);
 
   const handleKeyDown = (event) => {
-    const typeTextCount = inputRef.current.value.length;
     const typeText = event.key;
 
     if (event.key === "Backspace") {
       textcount > 0 ? setTextcount(textcount - 1) : setTextcount(textcount);
+    } else if (
+      event.key === "Shift" ||
+      event.key === "CapsLock" ||
+      event.key === "Control" ||
+      event.key === "Tab" ||
+      event.key === "ArrowUp" ||
+      event.key === "ArrowDown" ||
+      event.key === "ArrowLeft" ||
+      event.key === "ArrowRight" ||
+      event.key === "F1" ||
+      event.key === "F2" ||
+      event.key === "F3" ||
+      event.key === "F4" ||
+      event.key === "F5" ||
+      event.key === "F6" ||
+      event.key === "F7" ||
+      event.key === "F8" ||
+      event.key === "F9" ||
+      event.key === "F10" ||
+      event.key === "F11" ||
+      event.key === "F12"
+    ) {
+      setTextcount(textcount);
     } else {
-      if (typeText === text.charAt(textcount)) {
-        setTextcolor("right");
-      }
+      setCharArray(event.target.value.split(""));
+      console.log(charArray[textcount]);
 
-      if (typeText !== text.charAt(textcount)) {
-        setTextcolor("worng");
-      }
+      // if (typeText === text.charAt(textcount)) {
+      //   setTextcolor("right");
+      // }
 
-      setTextcount(textcount + 1);
+      // if (typeText !== text.charAt(textcount)) {
+      //   setTextcolor("worng");
+      // }
+
+      setTextcount(event.target.value.length);
     }
   };
 
@@ -45,20 +71,22 @@ export default function TypingTextbox() {
               <p>
                 {list.map((list, index) => {
                   return (
-                    <span
-                      key={index}
-                      className={`${index === textcount ? "blinking" : ""} ${
-                        textcolor === "right" && index === textcount - 1
-                          ? " text-green-700 bg-green-50 rounded"
-                          : ""
-                      } ${
-                        textcolor === "worng" && index === textcount - 1
-                          ? " text-red-700 bg-red-50 rounded"
-                          : ""
-                      }`}
-                    >
-                      {list}
-                    </span>
+                    <>
+                      <span
+                        key={index}
+                        className={`${index === textcount ? "blinking" : ""} ${
+                          textcolor === "right" && index === textcount - 1
+                            ? " text-green-700 bg-green-50 rounded"
+                            : ""
+                        } ${
+                          textcolor === "worng" && index === textcount - 1
+                            ? " text-red-700 bg-red-50 rounded"
+                            : ""
+                        }`}
+                      >
+                        {list}
+                      </span>
+                    </>
                   );
                 })}
               </p>

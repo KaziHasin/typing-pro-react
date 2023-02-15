@@ -6,7 +6,7 @@ const { body, validationResult } = require("express-validator");
 
 // Authenticate user login
 router.post(
-  "/",
+  "/", 
 
   body("email").isEmail(),
   body("password").exists(),
