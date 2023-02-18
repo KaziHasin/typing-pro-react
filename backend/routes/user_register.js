@@ -3,6 +3,9 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const { body, validationResult } = require("express-validator");
+const jwt = require("jsonwebtoken");
+const { verify } = require("jsonwebtoken");
+const secrecttoken = "mysecrecttokenforauthentication";
 
 // Authenticate user registraion
 router.post(
@@ -38,8 +41,19 @@ router.post(
 
       user.save();
 
+      let token;
+      let verifyUser;
+      try {
+        token = jwt.sign({ userId: user.id }, secrecttoken, {
+          expiresIn: "1h",
+        });
+        verifyUser = jwt.verify(token, secrecttoken);
+      } catch (err) {
+        const error = new Error("Error! Something went wrong.");
+      }
+
       res.send(user);
-      console.log(user);
+      console.log(verifyUser);
     } catch (error) {
       console.log("opps! Error: " + error.message);
     }

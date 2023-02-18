@@ -7,20 +7,26 @@ export default function TypingTextbox() {
   const list = text.split("");
 
   const inputRef = useRef();
+  const divRef = useRef(null);
+  const spanElements = useRef(null);
   useEffect(() => {
     document.body.addEventListener("click", () => {
       inputRef.current.focus();
     });
     inputRef.current.focus();
+    spanElements.current = divRef.current.querySelectorAll("span");
   }, []);
 
   const [textcount, setTextcount] = useState(0);
   const [textcolor, setTextcolor] = useState();
-  const [charArray, setCharArray] = useState([]);
+  const [value, setValue] = useState("");
+  const [countIndex, setCountIndex] = useState(0);
+  const [prevValue, setPrevValue] = useState("");
+
+  const successClassName = "text-green-700 bg-green-200 rounded mx-1";
+  const errorClassName = "text-red-700 bg-red-200 rounded mx-1";
 
   const handleKeyDown = (event) => {
-    const typeText = event.key;
-
     if (event.key === "Backspace") {
       textcount > 0 ? setTextcount(textcount - 1) : setTextcount(textcount);
     } else if (
@@ -47,20 +53,36 @@ export default function TypingTextbox() {
     ) {
       setTextcount(textcount);
     } else {
-      setCharArray(event.target.value.split(""));
-      console.log(charArray[textcount]);
-
-      // if (typeText === text.charAt(textcount)) {
-      //   setTextcolor("right");
-      // }
-
-      // if (typeText !== text.charAt(textcount)) {
-      //   setTextcolor("worng");
-      // }
-
-      setTextcount(event.target.value.length);
+      setTextcount(textcount + 1);
     }
   };
+
+  function handleChange(event) {
+    const value = event.target.value;
+    let newCountIndex = countIndex;
+
+    if (value.length < prevValue.length) {
+      newCountIndex = countIndex - 1; // decrease the index by 1
+    } else {
+      if (
+        spanElements.current[newCountIndex].innerText ===
+        value.split("")[newCountIndex]
+      ) {
+        spanElements.current[newCountIndex].classList.add(
+          ...successClassName.split(" ")
+        );
+      } else {
+        spanElements.current[newCountIndex].classList.add(
+          ...errorClassName.split(" ")
+        );
+      }
+
+      newCountIndex = countIndex + 1; // increase the index by 1
+    }
+
+    setCountIndex(newCountIndex); // update the index in the state
+    setPrevValue(value); // update the previous value in the state
+  }
 
   return (
     <>
@@ -68,21 +90,13 @@ export default function TypingTextbox() {
         <div className="container">
           <div className="text-box bg-white shadow-lg flex justify-center align-items-center my-20">
             <div className="text opacity-80 p-8 relative">
-              <p>
+              <p ref={divRef}>
                 {list.map((list, index) => {
                   return (
                     <>
                       <span
                         key={index}
-                        className={`${index === textcount ? "blinking" : ""} ${
-                          textcolor === "right" && index === textcount - 1
-                            ? " text-green-700 bg-green-50 rounded"
-                            : ""
-                        } ${
-                          textcolor === "worng" && index === textcount - 1
-                            ? " text-red-700 bg-red-50 rounded"
-                            : ""
-                        }`}
+                        className={`${index === textcount ? "blinking" : ""}`}
                       >
                         {list}
                       </span>
@@ -97,6 +111,7 @@ export default function TypingTextbox() {
                   className="textarea1 border border-gray-400 pl-1"
                   ref={inputRef}
                   onKeyDown={handleKeyDown}
+                  onChange={handleChange}
                 ></textarea>
               </div>
             </div>

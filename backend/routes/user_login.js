@@ -3,10 +3,14 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const { body, validationResult } = require("express-validator");
+const jwt = require("jsonwebtoken");
+const { verify } = require("jsonwebtoken");
+
+const secrecttoken = "mysecrecttokenforauthentication";
 
 // Authenticate user login
 router.post(
-  "/", 
+  "/",
 
   body("email").isEmail(),
   body("password").exists(),
@@ -30,8 +34,12 @@ router.post(
       if (!checkPassword) {
         return res.status(400).json({ errors: "Invalid credential." });
       }
+      let token;
+      //Creating jwt token
+      token = jwt.sign({ userId: user.id }, secrecttoken, { expiresIn: "1h" });
 
-      res.send(user._id);
+      const verifyUser = jwt.verify(token, secrecttoken);
+      res.send(verifyUser);
     } catch (error) {
       console.log("opps! Error: " + error.message);
     }
